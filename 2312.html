@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Розклад занять і форма</title>
+   <style>
+       body {
+           background-color: #A1CCD1;
+           font-family: Arial, sans-serif;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: flex-start;
+           height: 100vh;
+           margin: 0;
+       }
+
+       /* Стилі для заголовку */
+       header {
+          background-color: #ddd; /* Задаємо колір фону для заголовку */
+          width: 100%; /* Щоб заголовок займав всю ширину екрана */
+          text-align: center; /* Вирівнюємо текст у центрі заголовку */
+       }
+
+       h1 {
+           color: #009688; /* Задаємо колір тексту заголовку */
+       }
+
+       /* Стилі для таблиці розкладу занять */
+       table {
+           border-collapse: collapse;
+           width: 40%;
+           margin: 10px auto;
+           background-color: #fff;
+       }
+
+       th, td {
+           border: 1px solid #ddd;
+           padding: 8px;
+           text-align: center;
+       }
+
+       th {
+           background-color: #009688;
+           color: white;
+       }
+
+       tr:nth-child(odd) {
+           background-color: #f2f2f2;
+       }
+
+       tr:nth-child(even) {
+           background-color: #e0e0e0;
+       }
+
+       /* Стилі для форми реєстрації */
+       .registration-form {
+           width: 300px;
+           margin: 10px;
+           padding: 10px;
+           background-color: #fff;
+           border: 2px solid #ddd;
+           align-self: flex-start;
+       }
+
+       .registration-form label {
+           display: block;
+           margin-bottom: 5px;
+       }
+
+       .registration-form input[type="text"],
+       .registration-form input[type="email"],
+       .registration-form input[type="password"] {
+           width: 100%;
+           padding: 2px;
+           margin-bottom: 10px;
+           border: 2px solid #ddd;
+       }
+
+       .registration-form input[type="submit"] {
+           background-color: #009688;
+           color: white;
+           border: none;
+           padding: 10px;
+           cursor: pointer;
+       }
+
+       /* Медіа-запити для адаптивного дизайну */
+       @media (max-width: 768px) {
+           body {
+               align-items: flex-start;
+               padding: 10px;
+           }
+       }
+
+       /* Стилі для трьох колонок */
+       .columns {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+           max-width: 1200px; /* Максимальна ширина контейнера */
+           margin: 20px auto;
+       }
+
+       .column {
+           flex: 1; /* Початковий розмір колонок */
+           margin: 10px 10px 0 10px; /* Відступи: зверху, справа, зліва, знизу */
+       }
+
+   </style>
+</head>
+<body>
+   <header>
+       <h1>Розклад та реєстрація</h1>
+   </header>
+   <div class="columns">
+       <div class="column">
+           <!-- Таблиця розкладу занять -->
+           <table border="1">
+               <tr>
+                   <th>День тижня</th>
+                   <th>Дата</th>
+                   <th>Час</th>
+                   <th>Предмет</th>
+               </tr>
+               <tr>
+                   <td>Понеділок</td>
+                   <td>04.09.2023</td>
+                   <td>8:00 - 9:30</td>
+                   <td>Математика</td>
+               </tr>
+               <tr>
+                   <td>Вівторок</td>
+                   <td>05.09.2023</td>
+                   <td>9:00 - 10:30</td>
+                   <td>Фізика</td>
+               </tr>
+               <tr>
+                   <td>Середа</td>
+                   <td>06.09.2023</td>
+                   <td>8:30 - 10:00</td>
+                   <td>Хімія</td>
+               </tr>
+               <tr>
+                   <td>Четвер</td>
+                   <td>07.09.2023</td>
+                   <td>10:15 - 11:45</td>
+                   <td>Англійська мова</td>
+               </tr>
+               <tr>
+                   <td>П'ятниця</td>
+                   <td>08.09.2023</td>
+                   <td>9:30 - 11:00</td>
+                   <td>Історія</td>
+               </tr>
+               <tr>
+                   <td>Субота</td>
+                   <td>09.09.2023</td>
+                   <td>8:00 - 9:30</td>
+                   <td>Література</td>
+               </tr>
+               <tr>
+                   <td>Неділя</td>
+                   <td>10.09.2023</td>
+                   <td>10:00 - 11:30</td>
+                   <td>Біологія</td>
+               </tr>
+           </table>
+       </div>
+       <div class="column">
+           <!-- Зображення -->
+           <img src="https://i.pinimg.com/736x/2c/16/99/2c1699f11f39c89f6854c12efe8c6733.jpg" alt="Старша школа Slytherin" style="max-width: 100%;">
+       </div>
+       <div class="column">
+           <!-- Форма реєстрації -->
+           <div class="registration-form" id="registration">
+               <h1>Введіть особисту інформацію:</h1>
+               <form action="/submit.php" method="post">
+                   <label for="first_name">Ім'я:</label>
+                   <input type="text" id="first_name" name="first_name" required>
+                   <label for="last_name">Прізвище:</label>
+                   <input type="text" id="last_name" name="last_name" required>
+                   <label for="email">Адреса електронної пошти:</label>
+                   <input type="email" id="email" name="email" required>
+                   <label for="password">Пароль:</label>
+                   <input type="password" id="password" name="password" required>
+                   <label for="confirm_password">Підтвердіть пароль:</label>
+                   <input type="password" id="confirm_password" name="confirm_password" required>
+                   <input type="submit" value="Зареєструватися">
+               </form>
+           </div>
+       </div>
+   </div>
+   <script>
+       document.addEventListener("DOMContentLoaded", function () {
+           const form = document.querySelector("form");
+           form.addEventListener("submit", function (event) {
+               const password = document.getElementById("password").value;
+               const confirm_password = document.getElementById("confirm_password").value;
+               if (password !== confirm_password) {
+                   event.preventDefault();
+                   alert("Пароль і підтвердження паролю не співпадають");
+               }
+           });
+       });
+   </script>
+</body>
+</html>
